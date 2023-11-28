@@ -1,0 +1,251 @@
+@use "../abtracts";
+
+%flexItemCenter {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  background: var(--header-bg-color);
+
+  @include abtracts.breakpoint(lg) {
+    box-shadow: 0px 20px 60px 10px var(--header-shadow-color);
+  }
+}
+
+.top-bar {
+  @extend %flexItemCenter;
+  position: relative;
+  padding: 30px 0;
+
+  @include abtracts.breakpoint(lg) {
+    padding: 20px 0;
+  }
+
+  @include abtracts.breakpoint(md) {
+    justify-content: space-between;
+    padding: 16px 0;
+  }
+}
+
+.navbar {
+  margin-left: 129px;
+
+  @include abtracts.breakpoint(xl) {
+    margin-left: 28px;
+  }
+
+  @include abtracts.breakpoint(lg) {
+    position: fixed;
+    inset: 0 50% 0 0;
+    background: var(--sidebar-bg);
+    margin-left: 0;
+    z-index: 9;
+    padding: 20px 0;
+    border-radius: 0px 20px 20px 0px;
+
+    translate: -100%;
+    transition: translate 0.5;
+
+    &.show {
+      translate: 0;
+      box-shadow: var(--sidebar-shadow);
+    }
+
+    &.show ~ &__overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @include abtracts.breakpoint(sm) {
+    inset: 0 20% 0 0;
+  }
+
+  &__close-btn {
+    display: none;
+
+    @include abtracts.breakpoint(lg) {
+      display: block;
+      padding: 10px 40px;
+    }
+
+    @include abtracts.breakpoint(sm) {
+      padding: 0 20px 10px;
+    }
+  }
+
+  &__overlay {
+    visibility: hidden;
+    opacity: 0;
+
+    @include abtracts.breakpoint(lg) {
+      position: fixed;
+      inset: 0;
+      z-index: 8;
+      background: rgba($color: #000000, $alpha: 0.4);
+
+      transition: opacity, visibility;
+      transition-duration: 0.5s;
+    }
+  }
+
+  &__list {
+    @extend %flexItemCenter;
+
+    @include abtracts.breakpoint(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      height: calc(100% - 40px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    @include abtracts.breakpoint(md) {
+      height: calc(100% - 142px);
+    }
+
+    @include abtracts.breakpoint(sm) {
+      height: calc(100% - 124px);
+    }
+  }
+
+  &__item {
+    &:hover .dropdown {
+      display: block;
+    }
+
+    @include abtracts.breakpoint(lg) {
+      width: 100%;
+
+      &:hover .dropdown {
+        display: none;
+      }
+
+      &--active .dropdown {
+        display: block !important;
+      }
+    }
+  }
+
+  &__link {
+    @extend %flexItemCenter;
+    column-gap: 6px;
+    height: 50px;
+    padding: 0 15px;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%; /* 146.667% */
+
+    @include abtracts.breakpoint(lg) {
+      justify-content: space-between;
+      padding: 0 40px;
+
+      font-size: 1.6rem;
+      line-height: 150%; /* 150% */
+    }
+
+    @include abtracts.breakpoint(sm) {
+      padding: 0 20px;
+      height: 44px;
+    }
+  }
+
+  &__arrow {
+    margin-top: 3px;
+
+    @include abtracts.breakpoint(lg) {
+      rotate: -90deg;
+      transition: rotate 0.3s;
+    }
+  }
+
+  &__item--active &__arrow {
+    rotate: 0deg;
+  }
+}
+
+.top-act {
+  @extend %flexItemCenter;
+  margin-left: auto;
+  column-gap: 20px;
+
+  @include abtracts.breakpoint(md) {
+    margin-left: 0;
+  }
+
+  &__group {
+    @extend %flexItemCenter;
+    min-width: 50px;
+    height: 50px;
+
+    border-radius: 8px;
+    background: var(--top-act-group-bg-color);
+    box-shadow: 0px 20px 60px 10px var(--top-act-group-shadow);
+  }
+
+  &__group--single {
+    @include abtracts.breakpoint(lg) {
+      display: none;
+    }
+  }
+
+  &__group--single &__btn {
+    padding: 13px;
+  }
+
+  &__btn {
+    @extend %flexItemCenter;
+    column-gap: 10px;
+    width: 100%;
+    padding: 13px 20px;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%; /* 146.667% */
+  }
+
+  &__separate {
+    width: 1px;
+    height: 30px;
+    background: var(--top-act-group-separate);
+  }
+
+  &__avatar {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+.nav-btn {
+  height: 50px;
+  @extend %flexItemCenter;
+  padding: 0 40px;
+
+  @include abtracts.breakpoint(sm) {
+    padding: 0 20px;
+    height: 44px;
+  }
+
+  &__title,
+  &__quantity {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%; /* 146.667% */
+  }
+
+  &__title {
+    margin-left: 16px;
+  }
+
+  &__quantity {
+    margin-left: auto;
+  }
+}
