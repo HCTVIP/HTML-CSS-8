@@ -8,7 +8,7 @@
 .header {
   background: var(--header-bg-color);
 
-  @include abtracts.breakpoint(lg) {
+  @include abtracts.screen(lg) {
     box-shadow: 0px 20px 60px 10px var(--header-shadow-color);
   }
 }
@@ -16,13 +16,14 @@
 .top-bar {
   @extend %flexItemCenter;
   position: relative;
+  z-index: 1;
   padding: 30px 0;
 
-  @include abtracts.breakpoint(lg) {
+  @include abtracts.screen(lg) {
     padding: 20px 0;
   }
 
-  @include abtracts.breakpoint(md) {
+  @include abtracts.screen(md) {
     justify-content: space-between;
     padding: 16px 0;
   }
@@ -31,11 +32,11 @@
 .navbar {
   margin-left: 129px;
 
-  @include abtracts.breakpoint(xl) {
+  @include abtracts.screen(xl) {
     margin-left: 28px;
   }
 
-  @include abtracts.breakpoint(lg) {
+  @include abtracts.screen(lg) {
     position: fixed;
     inset: 0 50% 0 0;
     background: var(--sidebar-bg);
@@ -58,19 +59,19 @@
     }
   }
 
-  @include abtracts.breakpoint(sm) {
+  @include abtracts.screen(sm) {
     inset: 0 20% 0 0;
   }
 
   &__close-btn {
     display: none;
 
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       display: block;
       padding: 10px 40px;
     }
 
-    @include abtracts.breakpoint(sm) {
+    @include abtracts.screen(sm) {
       padding: 0 20px 10px;
     }
   }
@@ -79,7 +80,7 @@
     visibility: hidden;
     opacity: 0;
 
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       position: fixed;
       inset: 0;
       z-index: 8;
@@ -93,7 +94,7 @@
   &__list {
     @extend %flexItemCenter;
 
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       flex-direction: column;
       align-items: flex-start;
       height: calc(100% - 40px);
@@ -101,11 +102,11 @@
       overscroll-behavior: contain;
     }
 
-    @include abtracts.breakpoint(md) {
+    @include abtracts.screen(md) {
       height: calc(100% - 142px);
     }
 
-    @include abtracts.breakpoint(sm) {
+    @include abtracts.screen(sm) {
       height: calc(100% - 124px);
     }
   }
@@ -115,7 +116,7 @@
       display: block;
     }
 
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       width: 100%;
 
       &:hover .dropdown {
@@ -138,7 +139,7 @@
     font-weight: 500;
     line-height: 146.667%; /* 146.667% */
 
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       justify-content: space-between;
       padding: 0 40px;
 
@@ -146,7 +147,7 @@
       line-height: 150%; /* 150% */
     }
 
-    @include abtracts.breakpoint(sm) {
+    @include abtracts.screen(sm) {
       padding: 0 20px;
       height: 44px;
     }
@@ -155,7 +156,7 @@
   &__arrow {
     margin-top: 3px;
 
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       rotate: -90deg;
       transition: rotate 0.3s;
     }
@@ -171,7 +172,7 @@
   margin-left: auto;
   column-gap: 20px;
 
-  @include abtracts.breakpoint(md) {
+  @include abtracts.screen(md) {
     margin-left: 0;
   }
 
@@ -186,7 +187,7 @@
   }
 
   &__group--single {
-    @include abtracts.breakpoint(lg) {
+    @include abtracts.screen(lg) {
       display: none;
     }
   }
@@ -229,7 +230,7 @@
   @extend %flexItemCenter;
   padding: 0 40px;
 
-  @include abtracts.breakpoint(sm) {
+  @include abtracts.screen(sm) {
     padding: 0 20px;
     height: 44px;
   }
